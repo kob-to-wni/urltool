@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>URL Encoder/Decoder Tool</title>
+<style>
+#wrapper{
+	position: fixed;
+	top: 0.5em;
+	left: 0.5em;
+	right: 0.5em;
+	bottom: 2.5em;
+}
+#wrapper > #textarea{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	resize: none;
+}
+#buttons{
+	position: absolute;
+	right: 0.5em;
+	bottom: 0.5em;
+	text-align: right;
+}
+</style>
+<script>
+window.addEventListener("DOMContentLoaded", function(){
+	var textarea = document.querySelector("#textarea");
+	document.querySelector("#encode").addEventListener("click", function(){
+		textarea.value = encodeURI(textarea.value);
+	});
+	document.querySelector("#decode").addEventListener("click", function(){
+		textarea.value = decodeURI(textarea.value);
+	});
+});
+</script>
+</head>
+<body>
+<div id="wrapper">
+<textarea id="textarea"></textarea>
+</div>
+<div id="buttons">
+<button id="encode">Encode</button>
+<button id="decode" readonly>Decode</button>
+</div>
+</body>
+</html>
